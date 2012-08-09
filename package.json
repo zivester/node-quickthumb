@@ -1,0 +1,21 @@
+{
+  "name": "node-quickthumb",
+  "version": "0.0.1",
+  "description": "An on the fly image thumbnail creator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zivester/node-quickthumb.git"
+  },
+  "keywords": [
+    "thumb",
+    "thumbnail",
+    "image",
+    "imagemagick"
+  ],
+  "author": "Zach Ivester <zivester@gmail.com>",
+  "license": "BSD"
+}
