@@ -7,15 +7,16 @@ var assert = require('assert'),
 
 
 app.configure(function(){
-    app.use(qt.express('/public', __dirname + '/../public'));
+    app.use('/public', qt.express(__dirname + '/../public'));
 });
 
 
 app.get('/', function(req, res){
     var h = '';
-    [ 200, 100, 50, 25, 10, 25, 50, 100, 200 ].forEach(function(width){
+    [ 200, 100, 60, 35, 10, 35, 60, 100, 200 ].forEach(function(width){
         h += '<img src="/public/images/red.gif?dim=' + width + '" />';
     });
+    h += '<br /><img src="/public/images/red.gif" />';
     res.send(h);
 });
 
