@@ -1,7 +1,7 @@
 {
-  "name": "node-quickthumb",
+  "name": "quickthumb",
   "version": "0.0.1",
-  "description": "An on the fly image thumbnail creator.",
+  "description": "On the fly image thumbnail creation for express.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
