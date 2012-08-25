@@ -1,7 +1,21 @@
 var assert = require('assert'),
+    fs = require('fs'),
+    path = require('path'),
     qt = require('../lib/quickthumb');
 
-assert.equal(qt.isImage('test.jpg'), true);
-assert.equal(qt.isImage('test.txt'), false);
+(function(){
+    var ppath = path.normalize(__dirname + '/../public/images'),
+        src = path.join(ppath, 'red.gif'),
+        dst = path.join(ppath, 'red_converted.gif');
 
-assert.equal(qt.findImages(__dirname + '/../public/images').length, 1);
+    qt.convert({
+        src : src,
+        dst : dst,
+        width : 100,
+        height : 100
+    }, function(err, image){
+        assert.ifError(err);
+        assert.equal(image, dst);
+        assert.ifError(fs.unlinkSync(image));
+    });
+})();
