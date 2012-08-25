@@ -45,11 +45,12 @@ function callback(err, success){
     console.log('SUCCESS', success);
 }
 
-var images = qt.convert({
+qt.convert({
     src : src,
     dst : dst,
     width : width,
     height : height,
-    limit : 1
+    limit : 1,
+    overwrite : true
 }, callback);
 
