@@ -8,15 +8,28 @@ function exit(msg){
 }
 
 if (process.argv.length < 5){
-    exit('Usage: make-thumb.js src dst (<width>x<height>|<width>|x<height>)');
+    exit('Usage: make-thumb.js src dst (<width>x<height>|<width>|x<height>) [-r] [-p]');
 }
 
 var args = process.argv.slice(2),
     dimensions = args[2],
     src = args[0],
-    dst = path.join(args[1], dimensions),
+    dst = args[1],
+    options = args.slice(3),
+    recursive = false,
     width = '',
     height = '';
+
+// Create dimension directories
+// e.g. 200x150, 200, etc
+if (options.indexOf('-p') != -1){
+    dst = path.join(dst, dimensions);
+}
+
+// Recursive
+if (options.indexOf('-r') != -1){
+    recursive = true;
+}
 
 (function(){
     var match = /(\d*)x?(\d*)/.exec(dimensions);
@@ -38,19 +51,36 @@ if (!fs.existsSync(src)){
     exit('Cannot read ' + src);
 }
 
-function callback(err, success){
-    if (err){
-        throw err;
-    }
-    console.log('SUCCESS', success);
+function convert(src, dst){
+    qt.convert({
+        src : src,
+        dst : path.join(dst, path.basename(src)),
+        width : width,
+        height : height,
+        overwrite : true
+    }, function(err, image){
+        if (err){
+            return console.error(err);
+        }
+        console.log("CREATED", image);
+    });
 }
 
-qt.convert({
-    src : src,
-    dst : dst,
-    width : width,
-    height : height,
-    limit : 1,
-    overwrite : true
-}, callback);
+function processDir(src, dst){
+    fs.readdirSync(src).forEach(function(filename){
+        var spath = path.join(src, filename);
+        if (fs.statSync(spath).isFile()){
+            convert(spath, dst);
+        }
+        else if (recursive){
+            processDir(spath, path.join(dst, filename));
+        }
+    });
+}
 
+if (fs.statSync(src).isFile()){
+    convert(src, dst);
+}
+else{
+    processDir(src, dst);
+}
