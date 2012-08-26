@@ -1,7 +1,7 @@
 var assert = require('assert'),
     fs = require('fs'),
     path = require('path'),
-    qt = require('../lib/quickthumb');
+    qt = require('../');
 
 (function(){
     var ppath = path.normalize(__dirname + '/../public/images'),

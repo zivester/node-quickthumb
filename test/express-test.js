@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    qt = require('../lib/quickthumb');
+    qt = require('../');
 
 
 app.configure(function(){

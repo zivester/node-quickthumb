@@ -1,10 +1,10 @@
 {
   "name": "quickthumb",
-  "version": "0.0.1",
-  "description": "On the fly image thumbnail creation for express.",
+  "version": "0.0.2",
+  "description": "On the fly, thumbnail creation middleware for express.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/simple-test.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "thumbnail",
     "image",
     "imagemagick",
-    "timthumb"
+    "timthumb",
+    "timthumb.php"
   ],
   "author": "Zach Ivester <zivester@gmail.com>",
   "license": "MIT",
