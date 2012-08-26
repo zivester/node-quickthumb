@@ -45,7 +45,7 @@ Fedora/CentOS
 
 Middleware to replace `express.static()` or `connect.static()`.  `path` is the base directory where images are located.
 
-Resizing of images is directed by the query parameter `dim`.  This is in the format *[width]*x*[height]*. E.g. `red.gif?dim=200x100`
+Resizing of images is directed by the query parameter `dim`.  This is in the format [width]x[height]. E.g. `red.gif?dim=200x100`
 
 Resized images will be created on an as needed basis, and stored in `path/.cache/[dim]`.
 

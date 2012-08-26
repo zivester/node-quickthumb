@@ -18,7 +18,7 @@
     "timthumb"
   ],
   "author": "Zach Ivester <zivester@gmail.com>",
-  "license": "BSD",
+  "license": "MIT",
   "dependencies": {
     "easyimage": "~0.1.3",
     "mkdirp": "~0.3.3"
