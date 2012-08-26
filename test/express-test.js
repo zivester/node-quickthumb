@@ -10,7 +10,7 @@ app.configure(function(){
 
 app.get('/', function(req, res){
     var h = '<center>';
-    [ 200, 100, 60, 35, 10, 35, 60, 100, 200 ].forEach(function(width){
+    [ '200', '100x100', 'x60', '35', '10x10', 'x35', '60', '100x100', 'x200' ].forEach(function(width){
         var src = '/public/images/red.gif?dim=' + width;
         h += '<img src="' + src + '" title="' + src + '" />&nbsp;';
     });

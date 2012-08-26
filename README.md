@@ -53,11 +53,11 @@ If the `dim` parameter is not present, the original image will be served.
 
 ### qt.convert(options, callback)
 
-The first argument is an options object.
+The first argument is an options object. `src`, `dst`, and at least one of `width` and `height` are required
 
 * `src` (required) Path to source image
 * `dst` (required) Path to destination image
-* `width` (required) Width of resized image
+* `width` Width of resized image
 * `height` Height of resized image
 * `overwrite` [false|true] By default, conversion will not take place if the destination file already exists.  Set this field to *true* to force creation.
 
