@@ -56,8 +56,7 @@ function convert(src, dst){
         src : src,
         dst : path.join(dst, path.basename(src)),
         width : width,
-        height : height,
-        overwrite : true
+        height : height
     }, function(err, image){
         if (err){
             return console.error(err);

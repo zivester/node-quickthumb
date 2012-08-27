@@ -59,7 +59,6 @@ The first argument is an options object. `src`, `dst`, and at least one of `widt
 * `dst` (required) Path to destination image
 * `width` Width of resized image
 * `height` Height of resized image
-* `overwrite` [false|true] By default, conversion will not take place if the destination file already exists.  Set this field to *true* to force creation.
 
 The callback argument gets 2 arguments. The first is an error object, most likely from imagemagick's *convert*.  The second argument is the path to the created image.
 
