@@ -9,12 +9,18 @@ app.configure(function(){
 
 
 app.get('/', function(req, res){
+    var image = '/public/images/water.jpg';
+
+    function img(q){
+        return '<img src="' + image + q + '" title="' + image + q + '" />';
+    }
+
     var h = '<center>';
-    [ '200', '100x100', 'x60', '35', '10x10', 'x35', '60', '100x100', 'x200' ].forEach(function(width){
-        var src = '/public/images/red.gif?dim=' + width;
-        h += '<img src="' + src + '" title="' + src + '" />&nbsp;';
+    [ '200', '100x100', 'x60', '35', '10x10', 'x35', '60', '100x150', 'x200' ].forEach(function(dim){
+        h += img('?dim=' + dim) + '&nbsp;';
     });
-    h += '<br /><img src="/public/images/red.gif" title="/public/images/red.gif" /></center>';
+    h += '<br />' + img('?dim=800x100') + '<br />';
+    h += '<br />' + img('') + '</center>';
     res.send(h);
 });
 
