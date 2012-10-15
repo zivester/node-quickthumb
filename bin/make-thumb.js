@@ -8,7 +8,7 @@ function exit(msg){
 }
 
 if (process.argv.length < 5){
-    exit('Usage: make-thumb.js src dst (<width>x<height>|<width>|x<height>) [-r] [-p]');
+    exit('Usage: make-thumb.js src dst (<width>x<height>|<width>|x<height>) [-r] [-p] [--resize]');
 }
 
 var args = process.argv.slice(2),
@@ -18,7 +18,8 @@ var args = process.argv.slice(2),
     options = args.slice(3),
     recursive = false,
     width = '',
-    height = '';
+    height = '',
+    type = 'crop';
 
 // Create dimension directories
 // e.g. 200x150, 200, etc
@@ -29,6 +30,11 @@ if (options.indexOf('-p') != -1){
 // Recursive
 if (options.indexOf('-r') != -1){
     recursive = true;
+}
+
+// Resize
+if (options.indexOf('--resize') != -1){
+    type = 'resize';
 }
 
 (function(){
@@ -56,7 +62,8 @@ function convert(src, dst){
         src : src,
         dst : path.join(dst, path.basename(src)),
         width : width,
-        height : height
+        height : height,
+        type : type
     }, function(err, image){
         if (err){
             return console.error(err);

@@ -1,6 +1,6 @@
 {
   "name": "quickthumb",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "On the fly, thumbnail creation middleware for express.",
   "author": "Zach Ivester <zivester@gmail.com>",
   "main": "index.js",
@@ -30,7 +30,7 @@
     "resize"
   ],
   "dependencies": {
-    "imagemagick": "~0.1.3",
+    "imagemagick": "git://github.com/rsms/node-imagemagick.git",
     "mkdirp": "~0.3.3"
   }
 }

@@ -4,23 +4,30 @@ var express = require('express'),
 
 
 app.configure(function(){
-    app.use('/public', qt.static(__dirname + '/../public'));
+    // Crop
+    app.use('/public/crop', qt.static(__dirname + '/../public'));
+    // Resize
+    app.use('/public/resize', qt.static(__dirname + '/../public', { type : 'resize' }) );
 });
 
 
 app.get('/', function(req, res){
-    var image = '/public/images/water.jpg';
+    var types = [ 'crop', 'resize' ];
 
-    function img(q){
-        return '<img src="' + image + q + '" title="' + image + q + '" />';
+    function img(type,q){
+        var src = '/public/' + ( type ? type + '/' : '' ) + 'images/water.jpg' + q;
+        return '<img src="' + src + '" title="' + src + '" />';
     }
 
     var h = '<center>';
-    [ '200', '100x100', 'x60', '35', '10x10', 'x35', '60', '100x150', 'x200' ].forEach(function(dim){
-        h += img('?dim=' + dim) + '&nbsp;';
+    types.forEach(function(type){
+        h += '<br />' + type + '<br />';
+        [ '200', '100x100', 'x60', '35', '10x10', 'x35', '60', '100x150', 'x200' ].forEach(function(dim){
+            h += img(type, '?dim=' + dim) + '&nbsp;';
+        });
+        h += '<br />' + img(type, '?dim=800x100') + '<br />';
     });
-    h += '<br />' + img('?dim=800x100') + '<br />';
-    h += '<br />' + img('') + '</center>';
+    h += '<br />original<br />' + img('crop','') + '</center>';
     res.send(h);
 });
 
