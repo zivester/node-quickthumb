@@ -74,7 +74,7 @@ The callback argument gets 2 arguments. The first is an error object, most likel
 ## CLI utils
 
 ```js
-node bin/make-thumb.js src dst [width]x[height] [-p] [-r]
+node bin/make-thumb.js src dst [width]x[height] [-p] [-r] [--resize]
 ```
 
 * `src` Path to the source image or directory
@@ -82,6 +82,7 @@ node bin/make-thumb.js src dst [width]x[height] [-p] [-r]
 * `[width]x[height]` Dimensions of the resized images
 * `-p` Create a subdirectory in `dst` based off of the dimensions
 * `-r` Process images recursively from `src`
+* `--resize` Use *resize* instead of *crop*
 
 __Example__
 
