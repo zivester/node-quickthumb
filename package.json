@@ -1,6 +1,6 @@
 {
   "name": "quickthumb",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "On the fly, thumbnail creation middleware for express.",
   "author": "Zach Ivester <zivester@gmail.com>",
   "main": "index.js",
