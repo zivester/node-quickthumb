@@ -52,10 +52,11 @@ Middleware to replace `express.static()` or `connect.static()`.
 * `type` The type of imagemagick conversion to take place.  There are currently only two options:
   * `crop` (default) Crops and zooms images to the exact size specified. Proxy to *imagemagick.crop*.
   * `resize` Resizes an image to fit within the specified dimensions, but actual dimensions may not be exactly as specified. Proxy to *imagemagick.resize*.
+* `cacheDir` The directory where generated images will be created.  If not supplied, images will be created in `[path]/.cache/`
 
 Resizing of images is directed by the query parameter `dim`.  This is in the format [width]x[height]. E.g. `red.gif?dim=200x100`
 
-Resized images will be created on an as needed basis, and stored in `[path]/.cache/[type]/[dim]`.
+Resized images will be created on an as needed basis, and stored in `[cacheDir]/[type]/[dim]`.
 
 If the `dim` parameter is not present, the original image will be served.
 

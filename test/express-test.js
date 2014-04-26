@@ -6,7 +6,7 @@ var express = require('express'),
 
 app.configure(function(){
     // Crop
-    app.use('/public/crop', qt.static(__dirname + '/../public'));
+    app.use('/public/crop', qt.static(__dirname + '/../public', { cacheDir : '/tmp/cache'}));
     // Resize
     app.use('/public/resize', qt.static(__dirname + '/../public', { type : 'resize' }) );
 });

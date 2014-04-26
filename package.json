@@ -5,7 +5,8 @@
   "author": "Zach Ivester <zivester@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "test": "node test/simple-test.js"
+    "test": "node test/simple-test.js",
+    "start": "node test/express-test.js"
   },
   "repository": {
     "type": "git",
