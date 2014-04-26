@@ -6,7 +6,7 @@ var assert = require('assert'),
 
 (function(){
     var ppath = path.normalize(__dirname + '/../public/images'),
-        src = path.join(ppath, 'water.jpg');
+        src = path.join(ppath, 'cape cod.jpg');
 
     var sizes = [
         { width: 100, height: 100},

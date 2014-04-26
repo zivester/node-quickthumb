@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express(),
-    qt = require('../');
+    qt = require('../'),
+    filename = 'cape cod.jpg';
 
 
 app.configure(function(){
@@ -15,7 +16,7 @@ app.get('/', function(req, res){
     var types = [ 'crop', 'resize' ];
 
     function img(type,q){
-        var src = '/public/' + ( type ? type + '/' : '' ) + 'images/water.jpg' + q;
+        var src = '/public/' + ( type ? type + '/' : '' ) + 'images/' + filename + q;
         return '<img src="' + src + '" title="' + src + '" />';
     }
 
