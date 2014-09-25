@@ -11,9 +11,7 @@ var express = require('express'),
     app = express(),
     qt = require('quickthumb');
 
-app.configure(function(){
-    app.use('/public', qt.static(__dirname + '/../public'));
-});
+app.use('/public', qt.static(__dirname + '/../public'));
 ```
 
 ```html
