@@ -4,12 +4,10 @@ var express = require('express'),
     filename = 'cape cod.jpg';
 
 
-app.configure(function(){
-    // Crop
-    app.use('/public/crop', qt.static(__dirname + '/../public', { cacheDir : '/tmp/cache'}));
-    // Resize
-    app.use('/public/resize', qt.static(__dirname + '/../public', { type : 'resize' }) );
-});
+// Crop
+app.use('/public/crop', qt.static(__dirname + '/../public', { cacheDir : '/tmp/cache'}));
+// Resize
+app.use('/public/resize', qt.static(__dirname + '/../public', { type : 'resize' }) );
 
 
 app.get('/', function(req, res){
