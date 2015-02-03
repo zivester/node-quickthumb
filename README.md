@@ -51,6 +51,7 @@ Middleware to replace `express.static()` or `connect.static()`.
   * `crop` (default) Crops and zooms images to the exact size specified. Proxy to *imagemagick.crop*.
   * `resize` Resizes an image to fit within the specified dimensions, but actual dimensions may not be exactly as specified. Proxy to *imagemagick.resize*.
 * `cacheDir` The directory where generated images will be created.  If not supplied, images will be created in `[path]/.cache/`
+* `quality` The quality to use when resizing the image.  Values should be between 0 (worst quality) and 1 (best quality)
 
 Resizing of images is directed by the query parameter `dim`.  This is in the format [width]x[height]. E.g. `red.gif?dim=200x100`
 

@@ -5,9 +5,14 @@ var express = require('express'),
 
 
 // Crop
-app.use('/public/crop', qt.static(__dirname + '/../public', { cacheDir : '/tmp/cache'}));
+app.use('/public/crop', qt.static(__dirname + '/../public', {
+    cacheDir : '/tmp/cache',
+    quality : .95
+}));
 // Resize
-app.use('/public/resize', qt.static(__dirname + '/../public', { type : 'resize' }) );
+app.use('/public/resize', qt.static(__dirname + '/../public', {
+    type : 'resize',
+}));
 
 
 app.get('/', function(req, res){
